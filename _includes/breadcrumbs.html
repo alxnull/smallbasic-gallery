@@ -1,0 +1,14 @@
+<!-- From https://jekyllcodex.org/without-plugin/breadcrumbs -->
+<div id="breadcrumbs">
+    {% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
+    <a href="{{ "/" | relative_url }}"><i class="fa fa-home"></i></a>&nbsp;
+    {%- assign build_crumb = "/" -%}
+    {% for crumb in crumbs offset: 1 %}
+      {% if forloop.last %}
+      / {{ page.title | replace:'-',' ' }}
+      {% else %}
+      {%- assign build_crumb = build_crumb | append: crumb | append: '/' -%}
+      / <a href="{{ build_crumb | relative_url }}">{{ crumb | replace:'-',' ' | remove:'.html' }}</a>
+      {% endif %}
+    {% endfor %}
+</div>

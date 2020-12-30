@@ -18,21 +18,76 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Your awesome title
-email: your-email@example.com
+title: Small Basic Gallery
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
+  Small Basic Gallery is a collection of programs, extensions and tools made by and for the
+  community of the Small Basic programming language.
+  Browse through a large list of gallery items or add your own software to the list.
+baseurl: "/smallbasic-gallery" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+
+header_pages:
+  - /programs/index.html
+  - /extensions/index.html
+  - /tools/index.html
+  - /contribute/
+
+collections:
+  programs:
+    index: 0
+    output: true
+    permalink: /:collection/:categories/:name
+    description: |
+      Gallery of programs written in Small Basic by the community.
+  extensions:
+    index: 1
+    output: true
+    permalink: /:collection/:name
+    description: |
+      Gallery of extensions for the Small Basic language.
+  tools:
+    index: 2
+    output: true
+    permalink: /:collection/:name
+    description: |
+      Gallery of developer tools for working with Small Basic. This includes IDEs, compilers, editors and more.
+      These tools are usually not written in Small Basic themselves.
+
+pagination:
+  enabled: true
+  per_page: 15
+  title: ':title (:num of :max)'
+  permalink: /:num/
+  sort_field: title
+  trail:
+    before: 2
+    after: 2
+
+autopages:
+  enabled: true
+
+  collections:
+    title: :coll
+    layouts:
+      - 'list.html'
+    permalink: /:coll/
+
+  categories:
+    title: :cat
+    layouts:
+      - 'list_category.html'
+    permalink: /programs/:cat/
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "item"
 
 # Build settings
 theme: minima
 plugins:
-  - jekyll-feed
+  - jekyll-paginate-v2
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -42,14 +97,17 @@ plugins:
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
 #
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - .vscode/
+  - archive/
+  - TEMPLATES/

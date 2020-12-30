@@ -1,0 +1,44 @@
+.cat-list a {
+  display: inline-block;
+  margin: 2px 0;
+}
+
+.post-list li {
+  border-bottom: 1px solid $grey-color-light;
+  margin-bottom: $spacing-unit / 2;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.post-description {
+  font-size: $small-font-size;
+}
+
+
+.page-trail {
+  text-align: center;
+  margin: $spacing-unit 0;
+
+  & > div {
+    display: table;
+    margin: 0 auto;
+  }
+  
+  a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border-radius: 8px;
+  }
+
+  a.active {
+    background-color: $brand-color;
+    color: white;
+  }
+
+  a:hover:not(.active) {background-color: $grey-color-light;}
+}

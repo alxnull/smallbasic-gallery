@@ -1,0 +1,68 @@
+---
+layout: default
+---
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title | escape }}</h1>
+    <p class="post-author">
+        by&nbsp;
+        {%- if page.author.url -%}
+        <a href="{{ page.author.url }}">{{ page.author.name }}</a>
+        {%- else -%}
+        {{ page.author.name }}
+        {%- endif -%}
+    </p>
+    {% if page.program_id %}
+    <div class="post-program-import">
+      <b>Import this program</b>
+      <code>{{page.program_id}}</code>
+      <a class="btn" href="http://smallbasic.com/program?{{page.program_id}}">
+        <i class="fa fa-code"></i>&nbsp; Listing
+      </a>
+    </div>
+    {% endif %}
+  </header>
+
+  <ul class="post-links">
+    {%- if page.project_url -%}
+    <li>
+      <a class="btn" href="{{ page.project_url }}"><i class="fa fa-link"></i>&nbsp; More</a>
+    </li>
+    {%- endif -%}
+    {%- if page.download -%}
+    <li>
+      <a class="btn" href="{{ page.download }}"><i class="fa fa-download"></i>&nbsp; Download</a>
+    </li>
+    {%- endif -%}
+  </ul>
+
+  {%- if page.image -%}
+  <div class="post-content">
+    {%- assign image = "/assets/images/" | append: page.image -%}
+    <img src="{{ image | relative_url }}"/>
+  </div>
+  {%- endif -%}
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  <div class="post-nav">
+    {% if page.previous.url %}
+    <div class="wrapper" id="left">
+      <small><b>Previous</b></small>
+      <br>
+      <a href="{{ page.previous.url | prepend: site.baseurl }}">&laquo; {{page.previous.title}}</a>
+    </div>
+    {% endif %}
+    {% if page.next.url %}
+    <div class="wrapper" id="right">
+      <small><b>Next</b></small>
+      <br>
+      <a href="{{ page.next.url | prepend: site.baseurl }}">{{page.next.title}} &raquo;</a>
+    </div>
+    {% endif %}
+  </div>
+
+</article>

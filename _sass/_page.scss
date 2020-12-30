@@ -1,0 +1,68 @@
+.post-header {
+  border-bottom: 1px solid $grey-color-light;
+}
+
+.post-author {
+  margin-left: $spacing-unit;
+  color: $grey-color;
+  @include relative-font-size(1.25);
+
+  @include media-query($on-laptop) {
+    @include relative-font-size(1.125);
+  }
+}
+
+ul.post-links {
+  list-style-type: none;
+  margin: $spacing-unit 0;
+  padding: 0;
+
+  li {
+    display: inline-block;
+    margin-right: 4px;
+  }
+}
+
+.post-program-import {
+  border-top: 1px solid $grey-color-light;
+  padding: 15px 0;
+
+  code {
+    @include relative-font-size(1.3);
+    border: 1px solid $grey-color-light;
+    border-radius: 3px;
+    background-color: #eef;
+    padding: 1px 6px;
+    margin-left: 4px;
+  }
+
+  a {
+    float: right;
+  }
+}
+
+.post-nav {
+  width: 100%;
+  text-align: center;
+  border-top: 1px solid $grey-color-light;
+  border-bottom: 1px solid $grey-color-light;
+  font-size: 18px;
+  overflow: hidden;
+  margin-bottom: $spacing-unit;
+
+  .wrapper {
+    padding: 10px;
+    display: inline-block;
+    margin: 0 auto;
+  }
+
+  #left {
+    float: left;
+    text-align: left;
+  }
+
+  #right {
+    float: right;
+    text-align: right;
+  }
+}

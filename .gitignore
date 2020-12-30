@@ -3,3 +3,8 @@ _site
 .jekyll-cache
 .jekyll-metadata
 vendor
+.vscode
+
+# Ignore some helper scripts
+*.ps1
+*.script.rb
