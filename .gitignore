@@ -4,6 +4,7 @@ _site
 .jekyll-metadata
 vendor
 .vscode
+Gemfile.lock
 
 # Ignore some helper scripts
 *.ps1

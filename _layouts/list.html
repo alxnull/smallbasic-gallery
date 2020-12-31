@@ -33,7 +33,7 @@ layout: default
           </a>
           by&nbsp;
           {%- if post.author.url -%}
-          <a href="{{ page.author.url }}">{{ post.author.name }}</a>
+          <a href="{{ post.author.url }}">{{ post.author.name }}</a>
           {%- else -%}
           {{ post.author.name }}
           {%- endif -%}
